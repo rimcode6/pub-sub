@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pub/Sub</title>
+</head>
+<body>
+    <h1>Welcome to Pub/Sub</h1>
+    <h2>Subscribe to a topic</h2>
+    <form action="/subscribe" method="post">
+        <input type="text" name="topic" placeholder="Topic" required>
+        <button type="submit">Subscribe</button>
+    </form>
+
+    <h2>Publish a message</h2>
+    <form action="/publish" method="post">
+        <input type="text" name="topic" placeholder="Topic" required>
+        <input type="text" name="message" placeholder="Message" required>
+        <button type="submit">Publish</button>
+    </form>
+
+    <h2>Topics</h2>
+    <ul>
+        {% for topic in topics %}
+            <li><a href="/topic/{{ topic }}">{{ topic }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
